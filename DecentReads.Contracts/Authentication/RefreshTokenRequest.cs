@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DecentReads.Domain.Common
+namespace DecentReads.Contracts.Authentication
 {
-    public abstract class BaseDomainEntity
+    public class RefreshTokenRequest
     {
-        public int Id { get; set; }
     }
 }
