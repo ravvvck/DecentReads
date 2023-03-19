@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecentReads.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecentReads.Api", "DecentReads.Api\DecentReads.Api.csproj", "{D93ECA7B-1D93-43F2-865F-6E90BBE712FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecentReads.Contracts", "DecentReads.Contracts\DecentReads.Contracts.csproj", "{982492C7-B8D7-4107-9615-7D0CF096325A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{D93ECA7B-1D93-43F2-865F-6E90BBE712FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D93ECA7B-1D93-43F2-865F-6E90BBE712FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D93ECA7B-1D93-43F2-865F-6E90BBE712FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982492C7-B8D7-4107-9615-7D0CF096325A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982492C7-B8D7-4107-9615-7D0CF096325A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982492C7-B8D7-4107-9615-7D0CF096325A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982492C7-B8D7-4107-9615-7D0CF096325A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{539C0052-39C8-4A24-856C-E89FF50D9841} = {621B5403-582D-45B1-AD34-09E1098408CA}
 		{0DA25912-1F1C-477F-AAC1-FADB1F937F96} = {621B5403-582D-45B1-AD34-09E1098408CA}
 		{D93ECA7B-1D93-43F2-865F-6E90BBE712FA} = {621B5403-582D-45B1-AD34-09E1098408CA}
+		{982492C7-B8D7-4107-9615-7D0CF096325A} = {621B5403-582D-45B1-AD34-09E1098408CA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B802BF31-B11F-41D3-88EB-F1AE4256CA76}
