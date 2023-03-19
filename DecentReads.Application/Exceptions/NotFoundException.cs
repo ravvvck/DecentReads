@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DecentReads.Application.Exceptions
 {
-    internal class NotFoundException : ApplicationException
+    public class NotFoundException : ApplicationException
     {
-        public NotFoundException(string name, object key) : base($"{name} ({key}) was not found ")
+        public NotFoundException(string message) : base(message)
         {
 
         }
