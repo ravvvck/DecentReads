@@ -1,5 +1,5 @@
 ﻿using DecentReads.Domain.Books;
-
+using DecentReads.Domain.Books.Entities;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -22,19 +22,11 @@ namespace GameHost.Infrastructure.Persistence.Configurations
 
         private void ConfigureBookTable(EntityTypeBuilder<Book> builder)
         {
-            builder.OwnsMany(m => m.Ratings, sb =>
-            {
-                sb.ToTable("Ratings");
-                
-                sb.HasKey("Id");
-
-                
- 
-            });
+            builder.Ignore(p => p.Ratings);
         }
 
-       
+        
 
-       
+
     }
 }
