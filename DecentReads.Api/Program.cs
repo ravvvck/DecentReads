@@ -6,6 +6,11 @@ using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 {
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("FrontEndClient", builder =>
+        builder.AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(origin => true).AllowCredentials());
+    });
     //builder.Services.AddTransient<ErrorHandlingMiddleware>();
     builder.Services.AddApplication()
         .AddInfrastructure(builder.Configuration)
@@ -23,6 +28,7 @@ var app = builder.Build();
     app.UseHttpsRedirection();
 
     app.UseAuthentication();
+    app.UseCors("FrontEndClient");
     app.UseAuthorization();
     app.MapControllers();
 
