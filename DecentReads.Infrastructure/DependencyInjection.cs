@@ -6,6 +6,7 @@ using DecentReads.Infrastructure.Authentication;
 using DecentReads.Infrastructure.Persistence;
 using DecentReads.Infrastructure.Persistence.Repositories;
 using DecentReads.Infrastructure.Services;
+using GameHost.Application.Common.Interfaces.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -28,11 +29,14 @@ namespace DecentReads.Infrastructure
             services.AddSingleton<ITokenGenerator, TokenGenerator>();
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
             services.AddScoped<IUserRepository, UserRepository>();
-            
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IRatingRepository, RatingRepository>();
+
 
             services.AddDbContext<DecentReadsDbContext>(options =>
-            //options.UseSqlServer(configuration.GetConnectionString("DecentReadsDatabase")))
-            options.UseSqlite(configuration.GetConnectionString("SqlLite")));
+            options.UseSqlServer(configuration.GetConnectionString("DecentReadsDatabase")));
+            //options.UseSqlite(configuration.GetConnectionString("SqlLite")));
 
             configuration.Bind(JwtSettings.SectionName, jwtSettings);
             services.AddSingleton(Options.Create(jwtSettings));
