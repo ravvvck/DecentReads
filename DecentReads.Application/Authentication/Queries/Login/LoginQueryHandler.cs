@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace DecentReads.Application.Authentication.Queries.Login
 {
-    public record LoginQuery(string Email, string Password) : IRequest<AuthenticationResult>
+    public record LoginQuery(string Username, string Password) : IRequest<AuthenticationResult>
     {
     }
     public class LoginQueryHandler : IRequestHandler<LoginQuery, AuthenticationResult>
@@ -31,7 +31,8 @@ namespace DecentReads.Application.Authentication.Queries.Login
         }
         public async Task<AuthenticationResult> Handle(LoginQuery request, CancellationToken cancellationToken)
         {
-            if (userRepository.GetUserByEmail(request.Email) is not User user)
+            var validUser = userRepository.GetUserByUsernameAsync(request.Username).Result;
+            if (validUser is not User user)
             {
                 throw new BadRequestException("User does not exist");
             }

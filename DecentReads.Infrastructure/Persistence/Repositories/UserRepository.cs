@@ -58,5 +58,25 @@ namespace DecentReads.Infrastructure.Persistence.Repositories
         {
             return dbContext.Users.SingleOrDefault(u => u.RefreshToken == refreshToken);
         }
+
+        public async Task<User?> GetUserByUsernameAsync(string username)
+        {
+            var user = await dbContext.Users.SingleOrDefaultAsync(u => u.Username == username);
+            return user;
+        }
+
+        public async Task LogoutAsync(string refreshToken, int userId)
+        {
+            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken & u.Id == userId);
+            if (user == null)
+            {
+                throw new NotFoundException("User not found");
+            }
+           
+
+            user.RefreshToken = String.Empty;
+            await dbContext.SaveChangesAsync();
+            
+        }
     }
 }

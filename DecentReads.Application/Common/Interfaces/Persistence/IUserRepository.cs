@@ -14,8 +14,9 @@ namespace DecentReads.Application.Common.Interfaces.Persistence
         Task<User> UpdateAsync(User user);
         User? GetUserByEmail(string email);
         User? GetUserByUserId(int userId);
+        Task<User?> GetUserByUsernameAsync(string username);
         User? GetUserByRefreshToken(string refreshToken);
         void Register(User user);
-
+        Task LogoutAsync(string refreshToken, int userId);
     }
 }

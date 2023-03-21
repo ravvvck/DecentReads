@@ -17,7 +17,8 @@ namespace DecentReads.Application.Authentication.Commands.Register
     (
             string Username,
             string Email,
-            string Password
+            string Password,
+            string confirmPassword
     ) : IRequest<AuthenticationResult>;
 
 
@@ -36,6 +37,10 @@ namespace DecentReads.Application.Authentication.Commands.Register
         }
         public async Task<AuthenticationResult> Handle(RegisterCommand command, CancellationToken cancellationToken)
         {
+            if (command.Password != command.confirmPassword)
+            {
+                throw new BadRequestException("The confirmation password field must be the same as the password field.");
+            }
             if (userRepository.GetUserByEmail(command.Email) is not null)
             {
                 throw new BadRequestException("User already exist");
