@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DecentReads.Domain.Users.Entities;
 
 namespace DecentReads.Infrastructure.Persistence
 {
@@ -20,6 +21,8 @@ namespace DecentReads.Infrastructure.Persistence
         public DbSet<User> Users { get; set; }
         
         public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<FavoriteBook> FavoriteBooks { get; set; }
         public DecentReadsDbContext(DbContextOptions<DecentReadsDbContext> options) : base(options)
         {
 

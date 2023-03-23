@@ -22,7 +22,7 @@ namespace GameHost.Infrastructure.Persistence.Configurations
 
         private void ConfigureBookTable(EntityTypeBuilder<Book> builder)
         {
-            builder.Ignore(p => p.Ratings);
+            
         }
 
         

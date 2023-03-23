@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DecentReads.Domain.Users;
+using DecentReads.Domain.Users.ValueObjects;
 
 namespace GameHost.Infrastructure.Persistence.Configurations
 {
@@ -22,12 +23,22 @@ namespace GameHost.Infrastructure.Persistence.Configurations
         {
             builder.ToTable("Users");
             builder.HasKey(t => t.Id);
-            
+
+            builder.OwnsMany(m => m.FavoriteBooks, sb =>
+            {
+                sb.ToTable("FavoriteBooks");
+                sb.WithOwner().HasForeignKey("UserId");
+                sb.HasKey("Id");
+
+
+
+            });
 
             
 
-            
         }
-    
+
+        
+
     }
 }
