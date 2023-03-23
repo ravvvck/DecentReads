@@ -22,9 +22,5 @@ You can find application for generating recommendations [here](https://github.co
 - [NLog](https://nlog-project.org/)
 - Built-in Swagger via [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 
-## Docker
-You can start this project with the command
-```console
-docker-compose up
-```
+
 
