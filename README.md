@@ -4,12 +4,12 @@ Frontend can be found [here](https://github.com/ravvvck/DecentReadsFrontend).
 You can find application for generating recommendations [here](https://github.com/ravvvck/recommender). This repository also contains book data with which you can populate the database.
 
 ## Features
--User registration and login
--Adding books to your personal library
--Searching for books based on title, author or category
--Creating and viewing reviews and rating books
--Personalizing recommendations based on user ratings and reviews
--Browsing books by genres
+- User registration and login
+- Adding books to your personal library
+- Searching for books based on title, author or category
+- Creating and viewing reviews and rating books
+- Personalizing recommendations based on user ratings and reviews
+- Browsing books by genres
 
 
 ## Built with:
