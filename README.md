@@ -19,7 +19,6 @@ You can find application for generating recommendations [here](https://github.co
 - [Fluent Validation](https://github.com/JeremySkinner/FluentValidation)
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/) 
 - JWT authentication using [ASP.NET Core JWT Bearer Authentication](https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer).
-- [NLog](https://nlog-project.org/)
 - Built-in Swagger via [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 
 
