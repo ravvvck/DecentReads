@@ -32,7 +32,7 @@ namespace DecentReads.Infrastructure
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
-
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddDbContext<DecentReadsDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DecentReadsDatabase")));

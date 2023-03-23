@@ -73,12 +73,12 @@ namespace DecentReads.Infrastructure.Persistence.Repositories
 
 
 
-        public async void DeleteAsync(int id)
+        public async void DeleteAsync(int userId, int bookId)
         {
-            var book = dbContext.Books.FirstOrDefault(b => b.Id == id);
-            if (book == null) throw new NotFoundException("Rating not found");
+            var rating = dbContext.Ratings.FirstOrDefault(r => r.UserId == userId & r.BookId == bookId);
+            if (rating == null) throw new NotFoundException("Rating not found");
 
-            dbContext.Books.Remove(book);
+            dbContext.Ratings.Remove(rating);
             await dbContext.SaveChangesAsync();
         }
 
