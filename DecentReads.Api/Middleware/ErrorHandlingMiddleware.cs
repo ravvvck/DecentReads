@@ -1,4 +1,5 @@
 ﻿using DecentReads.Application.Exceptions;
+using DecentReads.Domain.Exceptions;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -27,12 +28,12 @@ namespace DecentReads.Api.Middleware
                 {
                     context.Response.StatusCode = 403;
                 }
-                //catch (DomainException domainException)
-                //{
-                //    context.Response.StatusCode = 400;
-                //    await context.Response.WriteAsync(domainException.Message);
-                //}
-                catch (BadRequestException badRequestException)
+            catch (DomainException domainexception)
+            {
+                context.Response.StatusCode = 400;
+                await context.Response.WriteAsync(domainexception.Message);
+            }
+            catch (BadRequestException badRequestException)
                 {
                     context.Response.StatusCode = 400;
                     await context.Response.WriteAsync(badRequestException.Message);
@@ -44,10 +45,7 @@ namespace DecentReads.Api.Middleware
                     await context.Response.WriteAsync(notFoundException.Message);
                 }
 
-                //catch (Exception ex)
-                //{
-                //    await HandleExceptionAsync(context, ex);
-                //}
+               
                 catch (Exception e)
                 {
                     context.Response.StatusCode = 500;
