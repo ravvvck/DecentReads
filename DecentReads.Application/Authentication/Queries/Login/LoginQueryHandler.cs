@@ -21,9 +21,9 @@ namespace DecentReads.Application.Authentication.Queries.Login
     {
         private readonly ITokenGenerator jwtTokenGenerator;
         private readonly IUserRepository userRepository;
-        private readonly IPasswordHasher<User> passwordHasher;
+        private readonly IPasswordHasher<DecentReads.Domain.Users.User> passwordHasher;
 
-        public LoginQueryHandler(ITokenGenerator jwtTokenGenerator, IUserRepository userRepository, IPasswordHasher<User> passwordHasher)
+        public LoginQueryHandler(ITokenGenerator jwtTokenGenerator, IUserRepository userRepository, IPasswordHasher<DecentReads.Domain.Users.User> passwordHasher)
         {
             this.jwtTokenGenerator = jwtTokenGenerator;
             this.userRepository = userRepository;
@@ -32,7 +32,7 @@ namespace DecentReads.Application.Authentication.Queries.Login
         public async Task<AuthenticationResult> Handle(LoginQuery request, CancellationToken cancellationToken)
         {
             var validUser = userRepository.GetUserByUsernameAsync(request.Username).Result;
-            if (validUser is not User user)
+            if (validUser is not DecentReads.Domain.Users.User user)
             {
                 throw new BadRequestException("User does not exist");
             }

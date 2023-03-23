@@ -27,9 +27,9 @@ namespace DecentReads.Application.Authentication.Commands.Register
     {
         private readonly ITokenGenerator jwtTokenGenerator;
         private readonly IUserRepository userRepository;
-        private readonly IPasswordHasher<User> passwordHasher;
+        private readonly IPasswordHasher<DecentReads.Domain.Users.User> passwordHasher;
 
-        public RegisterCommandHandler(ITokenGenerator jwtTokenGenerator, IUserRepository userRepository, IPasswordHasher<User> passwordHasher)
+        public RegisterCommandHandler(ITokenGenerator jwtTokenGenerator, IUserRepository userRepository, IPasswordHasher<DecentReads.Domain.Users.User> passwordHasher)
         {
             this.jwtTokenGenerator = jwtTokenGenerator;
             this.userRepository = userRepository;
@@ -46,11 +46,10 @@ namespace DecentReads.Application.Authentication.Commands.Register
                 throw new BadRequestException("User already exist");
             }
             
-            var user = User.Create(command.Username, command.Email, command.Password);
+            var user = DecentReads.Domain.Users.User.Create(command.Username, command.Email, command.Password);
             var hashedPassword = passwordHasher.HashPassword(user,command.Password);
             user.PasswordHash= hashedPassword;
             userRepository.Register(user);
-            Guid userId = Guid.NewGuid();
             var token = jwtTokenGenerator.GenerateToken(user);
             var refreshToken = jwtTokenGenerator.GenerateRefreshToken();
             user.UpdateRefreshToken(refreshToken);

@@ -11,12 +11,12 @@ namespace DecentReads.Application.Common.Interfaces.Persistence
 {
     public interface IUserRepository
     {
-        Task<User> UpdateAsync(User user);
-        User? GetUserByEmail(string email);
-        User? GetUserByUserId(int userId);
-        Task<User?> GetUserByUsernameAsync(string username);
-        User? GetUserByRefreshToken(string refreshToken);
-        void Register(User user);
+        Task<DecentReads.Domain.Users.User> UpdateAsync(DecentReads.Domain.Users.User user);
+        DecentReads.Domain.Users.User? GetUserByEmail(string email);
+        DecentReads.Domain.Users.User? GetUserByUserId(int userId);
+        Task<DecentReads.Domain.Users.User?> GetUserByUsernameAsync(string username);
+        DecentReads.Domain.Users.User? GetUserByRefreshToken(string refreshToken);
+        void Register(DecentReads.Domain.Users.User user);
         Task LogoutAsync(string refreshToken, int userId);
     }
 }

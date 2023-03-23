@@ -26,4 +26,8 @@
 		<ProjectReference Include="..\DecentReads.Domain\DecentReads.Domain.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="User\Commands\DeleteBookFromFavorites\" />
+	</ItemGroup>
+
 </Project>

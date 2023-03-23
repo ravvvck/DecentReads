@@ -20,8 +20,9 @@ namespace DecentReads.Application
         {
             services.AddMediatR(typeof(DependencyInjection).Assembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-            services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+            services.AddScoped<IPasswordHasher<DecentReads.Domain.Users.User>, PasswordHasher<DecentReads.Domain.Users.User>>();
             services.AddHttpContextAccessor();
 
             return services;

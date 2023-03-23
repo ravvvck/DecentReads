@@ -12,7 +12,7 @@ namespace DecentReads.Application.Common.Authentication
 {
     public interface ITokenGenerator
     {
-        string GenerateToken(User user);
+        string GenerateToken(DecentReads.Domain.Users.User user);
         RefreshToken GenerateRefreshToken();
     }
 }

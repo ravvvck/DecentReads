@@ -10,7 +10,7 @@ namespace DecentReads.Application.Common.Interfaces.Persistence
     public interface IRatingRepository
     {
         Task<int> AddOrUpdateAsync(int userId, int bookId, int value);
-        void DeleteAsync(int id);
+        void DeleteAsync(int userId, int bookId);
         Task<List<Rating>> GetAllAsync();
         Task<int> GetRatingForUserByBookIdAsync(int bookId, int userId);
         Task<List<Rating>> GetAllRatingsForUserByIdAsync(int userId);
