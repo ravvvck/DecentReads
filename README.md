@@ -1,7 +1,7 @@
 ## DecentReads
 An app modeled after Goodreads.com. Uses a Clean Architecture and CQRS pattern using the MediatR library. 
 Frontend can be found [here](https://github.com/ravvvck/DecentReadsFrontend).
-You can find applications for generating recommendations [here](https://github.com/ravvvck/recommender). This repository also contains book data with which you can populate the database.
+You can find application for generating recommendations [here](https://github.com/ravvvck/recommender). This repository also contains book data with which you can populate the database.
 
 ## Features
 -User registration and login
